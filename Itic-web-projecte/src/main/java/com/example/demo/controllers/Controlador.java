@@ -52,7 +52,7 @@ public class Controlador {
 		model.addAttribute("Empresas",empresa);
 		model.addAttribute("boton", "Inserta Empresa");
 		model.addAttribute("action", "/insertar");
-		model.addAttribute("libro", null);
+		model.addAttribute("empresa", null);
 		return "consulta";
 	}
 	@GetMapping("/borrado/{id}")
