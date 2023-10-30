@@ -19,7 +19,7 @@ import com.example.demo.bean.Usuario;
 public class Controlador {
 	Usuario usuario;
 	@Autowired
-	BaseDatos3Service bd;
+	BaseDatosService bd;
 	
 	
 	@GetMapping("/")
@@ -46,7 +46,7 @@ public class Controlador {
 	public String insertar (Empresa empresa, Model model) {
 		bd.inserta(empresa);
 		//bd.save(libro);
-		ArrayList<Empresas> empresa =bd.getEmpresas();
+		ArrayList<Empresa> empresas =bd.getEmpresas();
 		//ArrayList<Libro> libros = (ArrayList <Libro>)bd.findAll();
 		model.addAttribute("usuario",this.usuario);
 		model.addAttribute("Empresas",empresa);
