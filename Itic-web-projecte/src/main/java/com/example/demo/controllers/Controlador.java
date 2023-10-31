@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.bean.Empresa;
 import com.example.demo.bean.Usuario;
+import com.example.demo.repository.BaseDatosService;
 
 
 @Controller  
@@ -44,7 +45,7 @@ public class Controlador {
 
 	@PostMapping("/insertar")
 	public String insertar (Empresa empresa, Model model) {
-		bd.inserta(empresa);
+		bd.insertar(empresa);
 		//bd.save(libro);
 		ArrayList<Empresa> empresas =bd.getEmpresas();
 		//ArrayList<Libro> libros = (ArrayList <Libro>)bd.findAll();
@@ -79,7 +80,7 @@ public class Controlador {
 	
 	@GetMapping("/modificar/")
 	public String modificar2(Empresa empresa, Model model) {
-		bd.modifica(empresa);
+		bd.modificar(empresa);
 		ArrayList<Empresa> empresas = bd.getEmpresas();
 		model.addAttribute("usuario", this.usuario);
 		model.addAttribute("empresas",empresas);
