@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>LISTADO DE EMPRESAS</title>
+</head>
+<body>
+
+<h3>Usuario: <span th:text="${usuario.nombre}"> </span> - Password: <span th:text="${usuario.password}"></span></h3>
+<!-- <h3>Password: <span th:text="${usuario.password}"></span></h3>-->
+
+<h1>LISTADO DE EMPRESAS</h1>
+	<table border=1>
+		<thead>
+			<tr><th> id <th> nombre <th> email <th> telefono <th> Borrado <th> Modificar</tr>
+		</thead>
+		<tbody>
+		 <tr th:if="${libros.empty}">
+				<td colspan="2">No Hay Empresas Disponibles</td>
+			</tr>
+			
+			<tr th:each="Empresa : ${Empresa}">
+				<td><span th:text=${Empresa.id}></span></td>
+				<td><span th:text=${Empresa.nombre}></span></td>
+				<td><span th:text=${Empresa.email}></span></td>
+				<td><span th:text=${Empresa.telefono}></span></td>
+				<td><a th:href="@{/borrado/}+${Empresa.id}">Borrado</a></td>
+				<td><a th:href="@{/modificar/}+${Empresa.id}">Modificar</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<form action="/insertar" method="post">
+		<br>ID: <input type=text name=id th:value="${Empresa?.id}">
+		NOMBRE: <input type=text name=nombre th:value="${Empresa?.nombre}">
+		EMAIL: <input type=text name=email th:value="${Empresa?.email}"><br>
+		TELEFONO: <input type=text name=telefono th:value="${Empresa?.telefono}">
+		<br>
+		<input type=submit name=submit value="${boton}">
+	</form>
+</body>
+</html>
