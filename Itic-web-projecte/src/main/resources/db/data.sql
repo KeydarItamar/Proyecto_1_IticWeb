@@ -15,6 +15,6 @@ INSERT INTO `empresas` (`id`,`nombre`,`telefono`,`email`) VALUES
 (14, 'Sigma Innovations', '923334455', 'SIGMA@INNOVATIONS.COM'),
 (15, 'Zeta Corporation', '934445566', 'ZETA@CORP.COM');
 
-INSERT INTO `usuarios` (`id`,`usuario`,`password`) VALUES (1,'admin','456'), (2,'itic','itic');
+INSERT IGNORE INTO `usuarios` (`id`,`usuario`,`password`) VALUES (1,'admin','456'), (2,'itic','itic');
 
 

@@ -2,17 +2,22 @@ package com.example.demo.bean;
 
 import java.util.Objects;
 
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 //Clase empresa, metodos creados: Gette&Setter - Constructor Vacio&Atributos - toString - HashCode - Equals  
 
-
 @Entity
+@Table(name="empresas")
 public class Empresa {
 	
-	private @Id @GeneratedValue Long id;
+	private @Id @Column(name="id") @GeneratedValue(strategy=GenerationType.IDENTITY) Long id;
+	@Column(name="nombre", nullable = false, length = 30)
 	private String nombre;
 	private int telefono;
 	private String email;

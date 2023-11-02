@@ -55,7 +55,7 @@ public class BaseDatosService implements IBaseDatos {
 		boolean check = false;
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			String conex = "jdbc.mysql://localhost:3306/empresa";
+			String conex = "jdbc.mysql://localhost:3306/empresas";
 			Connection conexion = DriverManager.getConnection(conex, "root", "");
 			Statement s = conexion.createStatement();
 			String sql = "SELECT count(*) FROM USUARIOS WHERE usuario='"+usuario+"' "

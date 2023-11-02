@@ -2,14 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${titulo}"></title>
+    <title th:text="${nombre} ?: 'Título predeterminado'">Título predeterminado</title>
 </head>
 <body>
-<h1 th:text="${titulo}"></h1>
+<h1 th:text="${nombre} ?: 'Título predeterminado'">Título predeterminado</h1>
     <form action="/" method="post">
-        login: <input type=text name=nombre><br>
-        password <input type="password" name=password><br><br>
-        <input type=submit name=submit value="login">
+        <label for="nombre">Login:</label>
+        <input type="text" id="nombre" name="nombre"><br>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password"><br><br>
+        
+        <input type="submit" name="submit" value="Login">
     </form>
 </body>
 </html>

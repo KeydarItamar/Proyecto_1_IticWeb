@@ -1,21 +1,22 @@
 package com.example.demo.controllers;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.Empresa;
 import com.example.demo.bean.Usuario;
 import com.example.demo.repository.BaseDatosService;
 
 
-@Controller  
+@RestController  
 @RequestMapping("")
 public class Controlador {
 	Usuario usuario;
@@ -42,7 +43,13 @@ public class Controlador {
 		}
 	}
 
-
+	@GetMapping("/mostrarEmpresas")
+	public ArrayList<Empresa> mostrarEmpresa() {	
+		ArrayList<Empresa> empresas = bd.getEmpresas();
+		return empresas;
+		
+	}
+	
 	@PostMapping("/insertar")
 	public String insertar (Empresa empresa, Model model) {
 		bd.insertar(empresa);
@@ -50,7 +57,7 @@ public class Controlador {
 		ArrayList<Empresa> empresas =bd.getEmpresas();
 		//ArrayList<Libro> libros = (ArrayList <Libro>)bd.findAll();
 		model.addAttribute("usuario",this.usuario);
-		model.addAttribute("Empresas",empresa);
+		model.addAttribute("Empresas",empresas);
 		model.addAttribute("boton", "Inserta Empresa");
 		model.addAttribute("action", "/insertar");
 		model.addAttribute("empresa", null);
