@@ -22,7 +22,8 @@ public class BaseDatosService implements IBaseDatos {
 	// Añadir Empresa
 	
 	@Override
-	public void insertar(Empresa empresa) { bd.save(empresa); }
+	public void insertar(Empresa empresa) {
+		bd.save(empresa); }
 	
 	
 	// Borrar Empresa
@@ -33,7 +34,9 @@ public class BaseDatosService implements IBaseDatos {
 	// Modificar Empresa
 	
 	@Override
-	public void modificar(Empresa empresa) { bd.save(empresa); }
+	public void modificar(Empresa empresa) {
+		bd.save(empresa); 
+		}
 	
 	// Consultar Empresa
 	
@@ -46,7 +49,9 @@ public class BaseDatosService implements IBaseDatos {
 	// Consultar todas las emprseas
 	
 	@Override
-	public ArrayList<Empresa> getEmpresas() { return (ArrayList<Empresa>) bd.findAll(); }
+	public ArrayList<Empresa> getEmpresas() {
+		return (ArrayList<Empresa>) bd.findAll();
+		}
 	
 	// Comprobar si el usuario existe
 	

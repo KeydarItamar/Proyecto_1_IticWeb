@@ -2,7 +2,6 @@ package com.example.demo.bean;
 
 import java.util.Objects;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -96,7 +95,12 @@ public class Empresa {
 		return Objects.equals(email, other.email) && Objects.equals(id, other.id)
 				&& Objects.equals(nombre, other.nombre) && telefono == other.telefono;
 	}
-	
+
+
+/*	public Object map(Empresa empresa) {
+		return empresa;
+	}
+	*/
 	
 	
 	

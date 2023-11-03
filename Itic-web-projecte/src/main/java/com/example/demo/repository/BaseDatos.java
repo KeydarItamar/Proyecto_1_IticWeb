@@ -6,3 +6,5 @@ import com.example.demo.bean.Empresa;
 public interface BaseDatos extends JpaRepository<Empresa, Integer> {
 
 }
+
+
