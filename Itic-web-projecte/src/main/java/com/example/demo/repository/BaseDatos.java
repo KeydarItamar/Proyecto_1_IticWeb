@@ -1,9 +1,12 @@
 package com.example.demo.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
 import com.example.demo.bean.Empresa;
 
-public interface BaseDatos extends JpaRepository<Empresa, Integer> {
+@Repository
+public interface BaseDatos extends CrudRepository<Empresa, Integer> {
 
 }
 
