@@ -15,7 +15,7 @@ import jakarta.persistence.Table;
 @Table(name="empresas")
 public class Empresa {
 	
-	private @Id @Column(name="id") @GeneratedValue(strategy=GenerationType.IDENTITY) Long id;
+	private @Id @Column(name="id") @GeneratedValue(strategy=GenerationType.IDENTITY) int id;
 	@Column(name="nombre", nullable = false, length = 30)
 	private String nombre;
 	private int telefono;
@@ -31,7 +31,7 @@ public class Empresa {
 	}
 
 	
-	public Empresa(Long id, String nombre, int telefono, String email) {
+	public Empresa(int id, String nombre, int telefono, String email) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
@@ -40,10 +40,10 @@ public class Empresa {
 	}
 	//Getters y settes de los atributos: 
 	
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getNombre() {
