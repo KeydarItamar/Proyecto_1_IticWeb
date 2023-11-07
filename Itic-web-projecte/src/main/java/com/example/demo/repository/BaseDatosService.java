@@ -17,7 +17,7 @@ import com.example.demo.bean.Empresa;
 public class BaseDatosService implements IBaseDatos {
 	
 	@Autowired
-	BaseDatos bd;
+	EmpresaRepository bd;
 	
 	// Añadir Empresa
 	

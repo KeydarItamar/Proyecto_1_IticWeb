@@ -3,10 +3,10 @@ package com.example.demo.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.bean.Empresa;
+import com.example.demo.bean.Oferta;
 
 @Repository
-public interface BaseDatos extends CrudRepository<Empresa, Integer> {
+public interface OfertasRepository extends CrudRepository<Oferta, Integer> {
 
 }
 

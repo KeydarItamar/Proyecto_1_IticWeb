@@ -16,14 +16,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.bean.Empresa;
-import com.example.demo.repository.BaseDatos;
+import com.example.demo.repository.EmpresaRepository;
 
 
 @RestController  
 @RequestMapping("")
-public class Controlador {
+public class EmpresaController {
 	@Autowired
-	private BaseDatos bd; 
+	private EmpresaRepository bd; 
 	
 	@PostMapping("/empresas")
 	@ResponseStatus(HttpStatus.CREATED)
@@ -50,6 +50,7 @@ public class Controlador {
 	        empresa1.setNombre(empresa.getNombre());
 	        empresa1.setTelefono(empresa.getTelefono());
 	        empresa1.setEmail(empresa.getEmail());
+	       // empresa1.setId_oferta(empresa.getId_oferta());
 	        return bd.save(empresa1);
 	      })
 	      .orElseGet(() -> {
