@@ -37,7 +37,7 @@ public class Empresa {
 	}
 
 	
-	public Empresa(int id, String nombre, int telefono, String email,Oferta oferta) {
+	public Empresa(int id, String nombre, int telefono, String email,List<Oferta> ofertas) {
 		super();
 		this.id = id;
 		this.nombre = nombre;

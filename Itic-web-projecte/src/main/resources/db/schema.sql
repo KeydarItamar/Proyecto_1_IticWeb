@@ -10,8 +10,7 @@ CREATE TABLE IF NOT EXISTS ofertas(
     descripcion varchar(300) NOT NULL, 
     requisitos varchar(300) NOT NULL,
     salario int NOT NULL,
-    id_empresa int,
-    CONSTRAINT fk_oferta FOREIGN KEY (id_empresa) REFERENCES empresas (id) 
+    id_empresa int
 );
 
 CREATE TABLE IF NOT EXISTS usuarios (

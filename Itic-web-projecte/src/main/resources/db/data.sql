@@ -1,4 +1,4 @@
-INSERT INTO `empresas` (`id`,`nombre`,`telefono`,`email`) VALUES
+INSERT IGNORE INTO `empresas` (`id`,`nombre`,`telefono`,`email`) VALUES
 (1,'ISSARD','932222251','ISSARD@GMAIL.COM'),
 (2, 'GLOBEX', '912345678', 'GLOBEX@GMAIL.COM'),
 (3, 'XYZ Company', '987654321', 'XYZ@COMPANY.COM'),
@@ -15,7 +15,7 @@ INSERT INTO `empresas` (`id`,`nombre`,`telefono`,`email`) VALUES
 (14, 'Sigma Innovations', '923334455', 'SIGMA@INNOVATIONS.COM'),
 (15, 'Zeta Corporation', '934445566', 'ZETA@CORP.COM');
 
-INSERT INTO `ofertas` (`id`,`descripcion`,`requisitos`,`salario`,`id_empresa`) values
+INSERT IGNORE INTO `ofertas` (`id`,`descripcion`,`requisitos`,`salario`,`empresa_id`) values
 (1,'desc1','req1',30000, 3),
 (2,'desc2','req2',60000, 1),
 (3,'desc3','req3',10000, 4),
