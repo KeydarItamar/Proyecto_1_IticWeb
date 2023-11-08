@@ -1,5 +1,6 @@
 package com.example.demo.bean;
 
+import java.util.List;
 import java.util.Objects;
 
 import jakarta.persistence.CascadeType;
@@ -9,7 +10,7 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 //Clase empresa, metodos creados: Gette&Setter - Constructor Vacio&Atributos - toString - HashCode - Equals  
@@ -22,8 +23,8 @@ public class Empresa {
 	private String nombre;
 	private int telefono;
 	private String email;
-	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Oferta oferta;
+	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
+	private List<Oferta> ofertas;
 	
 	
 	
@@ -42,17 +43,17 @@ public class Empresa {
 		this.nombre = nombre;
 		this.telefono = telefono;
 		this.email = email;
-		this.oferta = oferta;
+		this.ofertas = ofertas;
 	}
 	//Getters y settes de los atributos: 
 	
-	public Oferta getId_oferta() {
-		return oferta;
+	public List<Oferta> getOfertas() {
+		return ofertas;
 	}
 
 
-	public void setId_oferta(Oferta oferta) {
-		this.oferta = oferta;
+	public void setOfertas(List<Oferta> ofertas) {
+		this.ofertas = ofertas;
 	}
 
 

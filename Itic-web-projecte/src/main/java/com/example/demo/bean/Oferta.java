@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 
@@ -17,18 +19,19 @@ public class Oferta {
 	@Column(name="descripcion", nullable = false, length = 300)
  private String descripcion;
  private String requisitos;
- //@OneToOne(mappedBy = "id")
- //private int id_empresa;
+ @ManyToOne()
+ @JoinColumn(name = "empresa_id")
+ private Empresa empresa;
  private double salario;
  
 
-public Oferta(int id, String descripcion, String requisitos, double salario) {
+public Oferta(int id, String descripcion, String requisitos, double salario, Empresa empresa) {
 	super();
 	this.id = id;
 	this.descripcion = descripcion;
 	this.requisitos = requisitos;
-	//this.id_empresa = id_empresa;
 	this.salario = salario;
+	this.empresa = empresa;
 }
 
 public Oferta() {
