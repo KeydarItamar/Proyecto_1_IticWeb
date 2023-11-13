@@ -3,10 +3,12 @@ package com.example.demo.bean;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -16,6 +18,9 @@ import jakarta.persistence.Table;
 //Clase empresa, metodos creados: Gette&Setter - Constructor Vacio&Atributos - toString - HashCode - Equals  
 
 @Entity
+@JsonIdentityInfo(
+		  generator = ObjectIdGenerators.PropertyGenerator.class, 
+		  property = "id")
 @Table(name="empresas")
 public class Empresa {
 	private @Id @Column(name="id") @GeneratedValue(strategy=GenerationType.IDENTITY) int id;
@@ -26,17 +31,10 @@ public class Empresa {
 	@OneToMany(mappedBy = "empresa", cascade = CascadeType.ALL)
 	private List<Oferta> ofertas;
 	
+	//constructor vacio y constructor con atributos. 
 	
-	
-	
-	
-	//constructo vacio y constructor con atributos. 
+	public Empresa() { super(); }
 
-	public Empresa() {
-		
-	}
-
-	
 	public Empresa(int id, String nombre, int telefono, String email,List<Oferta> ofertas) {
 		super();
 		this.id = id;
@@ -45,60 +43,55 @@ public class Empresa {
 		this.email = email;
 		this.ofertas = ofertas;
 	}
-	//Getters y settes de los atributos: 
+	
+	//Getters y setters de los atributos
 	
 	public List<Oferta> getOfertas() {
 		return ofertas;
 	}
 
-
 	public void setOfertas(List<Oferta> ofertas) {
 		this.ofertas = ofertas;
 	}
 
-
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public int getTelefono() {
 		return telefono;
 	}
+	
 	public void setTelefono(int telefono) {
 		this.telefono = telefono;
 	}
+	
 	public String getEmail() {
 		return email;
 	}
+	
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-
-	//Metodo to String 
 	
-	@Override
-	public String toString() {
-		return "Empresa [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + "]";
-	}
-
-
-	
-	//Metodos Hashcode y equals. 
+	//Metodos HashCode y equals
 	
 	@Override
 	public int hashCode() {
 		return Objects.hash(email, id, nombre, telefono);
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -111,15 +104,12 @@ public class Empresa {
 		Empresa other = (Empresa) obj;
 		return Objects.equals(email, other.email) && Objects.equals(id, other.id)
 				&& Objects.equals(nombre, other.nombre) && telefono == other.telefono;
+	}	
+	
+	//Metodo toString 
+	
+	@Override
+	public String toString() {
+		return "Empresa [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", email=" + email + "]";
 	}
-
-
-/*	public Object map(Empresa empresa) {
-		return empresa;
-	}
-	*/
-	
-	
-	
-	
 }
