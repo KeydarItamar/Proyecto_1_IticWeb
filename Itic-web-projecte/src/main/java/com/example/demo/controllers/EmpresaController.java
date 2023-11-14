@@ -20,7 +20,7 @@ import com.example.demo.repository.EmpresaRepository;
 
 
 @RestController  
-@RequestMapping("")
+@RequestMapping("/empresa")
 public class EmpresaController {
 	@Autowired
 	private EmpresaRepository bd; 
