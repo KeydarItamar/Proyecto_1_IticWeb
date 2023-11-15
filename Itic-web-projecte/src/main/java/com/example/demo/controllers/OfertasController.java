@@ -20,7 +20,7 @@ import com.example.demo.repository.OfertasRepository;
 
 
 @RestController  
-@RequestMapping("")
+@RequestMapping("/oferta")
 public class OfertasController {
 
 		@Autowired
