@@ -43,6 +43,7 @@ public class Empresa {
 		this.email = email;
 		this.ofertas = ofertas;
 	}
+
 	
 	//Getters y setters de los atributos
 	
