@@ -14,27 +14,28 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Integer> {
 	
-		Optional <Empresa> findByNombre(String nombre);
+		//Optional <Empresa> findByNombre(String nombre);
 		Optional <Empresa> findByTelefono(Integer telefono);
 		Optional <Empresa> findByNombreOrderByNombreDesc(String nombre);
 
 		
 		
-		/*@Query(value ="""
-				SELECT CASE WHEN (COUNT(e) > 0 THEN true ELSE false END
-				FROM Empresa e
-				WHERE lower(e.nombre) LIKE lower(:nombre)
-				""")
-		@Transactional
-		@Modifying
-		boolean  existsEmpresaByNombre(String nombre);
-		*/
+		@Query(value = """
+		        SELECT CASE WHEN COUNT(e) > 0 THEN true ELSE false END
+		        FROM Empresa e
+		        WHERE lower(e.nombre) LIKE lower(:nombre)
+		        """)
+		boolean existsEmpresaByNombre(String nombre);
 		
 		
-		@Query(value = "UPDATE Empresa e set e.telefono = 0000000 where e.telefono = :telefono")
+		
+		@Query(value = "UPDATE Empresa e set e.telefono = 11111111 where e.telefono = :telefono")
 		@Transactional
 		@Modifying
 		void updateEmpresaTelefonoByNewTelefono(int telefono);
+
+
+
 		
 }
 
