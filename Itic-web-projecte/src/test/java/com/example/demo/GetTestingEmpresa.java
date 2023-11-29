@@ -24,6 +24,8 @@ class GetTestingEmpresa {
 		Empresa empresaGet = bd.findById(resultat.getId()).orElse(null);
 		
 		assertEquals(resultat, empresaGet);
+		
+		bd.deleteById(resultat.getId());
 	}
 	
 	@Test
@@ -34,6 +36,8 @@ class GetTestingEmpresa {
 		empresas.add(resultat);
 		
 		assertEquals(empresas, (ArrayList<Empresa>) bd.findAll());
+	
+		bd.deleteById(resultat.getId());
 	}
 	
 

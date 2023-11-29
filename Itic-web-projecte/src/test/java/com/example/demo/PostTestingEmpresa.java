@@ -24,6 +24,7 @@ class PostTestingEmpresa {
 		
 		assertEquals("itaCeo", empresa2.getNombre());
 		
+		bd.deleteById(empresa2.getId());
 	}
 	
 	@Test 
@@ -33,6 +34,7 @@ class PostTestingEmpresa {
 		
 		assertEquals(77777777, empresa2.getTelefono());
 		
+		bd.deleteById(empresa2.getId());
 	}
 	
 	@Test 
@@ -42,6 +44,7 @@ class PostTestingEmpresa {
 		
 		assertEquals("Email@gmail.com", empresa2.getEmail());
 		
+		bd.deleteById(empresa2.getId());
 	}
 
 
