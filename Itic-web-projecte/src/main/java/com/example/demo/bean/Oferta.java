@@ -86,8 +86,15 @@ public class Oferta {
 		this.salario = salario;
 	}
 	
+	public void setEmpresa(Empresa empresa) {
+		this.empresa = empresa;
+	}
+	
+	
 	//Metodos HashCode y equals. 
 	
+	
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(descripcion, id, requisitos, salario);
@@ -114,4 +121,6 @@ public class Oferta {
 		return "Ofertas [id=" + id + ", descripcion=" + descripcion + ", requisitos=" + requisitos + ", salario=" + salario
 				+ "]";
 	}
+
+	
 }
