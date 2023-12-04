@@ -8,6 +8,7 @@ import org.hibernate.annotations.OnDeleteAction;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -25,9 +26,12 @@ import jakarta.persistence.Table;
 		  property = "id")
 @Table(name="ofertas")
 public class Oferta {
+	@Schema(description = "Numero id de la oferta")
 	private@Id @Column(name="id") @GeneratedValue(strategy=GenerationType.IDENTITY) int id;
 	@Column(name="descripcion", nullable = false, length = 300)
+	@Schema(description = "Puesto ofrecido, condiciones laborales, y asuntos referentes al tipo de oferta laboral")
 	private String descripcion;
+	@Schema(description = "Necesidades de la empresa que deben cumplir los que se suscriban a la oferta")
 	private String requisitos;
 	private double salario;
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)

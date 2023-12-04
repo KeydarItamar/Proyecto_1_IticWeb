@@ -18,9 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.bean.Empresa;
 import com.example.demo.repository.EmpresaRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 
 @RestController  
 @RequestMapping("/empresa")
+@Tag(name= "/empresas", description = "Empleados API REST con JPA-CRUD Operations")
 public class EmpresaController {
 	@Autowired
 	private EmpresaRepository bd; 
@@ -33,16 +37,19 @@ public class EmpresaController {
     }
 	
 	@GetMapping("/empresas")
+	@Operation(summary= "/empresas", description = "Devuelve un listado de todas las empresas")
 	public ArrayList<Empresa> getEmpresas() {	
 		return (ArrayList<Empresa>) bd.findAll();
 	}
 	
 	@GetMapping("/empresas/{id}")
+	@Operation(summary= "/empresas/id", description = "Devuelve un json con los datos de la empresa del ID aportado")
 	public Optional<Empresa> getEmpresaById(@PathVariable int id) {
 	    return bd.findById(id);
 	}
 	
 	@PutMapping("/empresas/{id}")
+	@Operation(summary= "/empresas/id", description = "Permite cambiar los datos de la empresa con el id aportado")
 	public Empresa modificaEmpresa(@RequestBody Empresa empresa, @PathVariable int id) {
 	    
 	    return bd.findById(id)
@@ -60,6 +67,7 @@ public class EmpresaController {
 	  }
 
 	@DeleteMapping("/empresas/{id}")
+	@Operation(summary= "/empresa/id", description = "Elimina la empresa del id aportado de la base de datos")
 	public void deleteEmpresa(@PathVariable int id) {
 		System.out.println("delete");
 	    bd.deleteById(id);
