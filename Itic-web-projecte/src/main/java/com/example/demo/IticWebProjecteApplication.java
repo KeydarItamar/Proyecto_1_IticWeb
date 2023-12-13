@@ -13,9 +13,9 @@ import com.example.demo.repository.EmpresaRepository;
 public class IticWebProjecteApplication {
 
 	public static void main(String[] args) {
-		//SpringApplication.run(IticWebProjecteApplication.class, args);
+		SpringApplication.run(IticWebProjecteApplication.class, args);
 	
-	
+		/*
 		//context crea todas las estructuras de las funciones vacias del repository
 		ApplicationContext context = SpringApplication.run(IticWebProjecteApplication.class,args);
 		var repo = context.getBean(EmpresaRepository.class);
@@ -51,7 +51,7 @@ public class IticWebProjecteApplication {
 		
 		Optional <Empresa> empresa2 = repo.findByTelefono(11111111);
 		System.out.println(empresa2.toString());
-
+*/
 	}
 
 }

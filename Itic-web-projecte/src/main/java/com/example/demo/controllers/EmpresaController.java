@@ -23,11 +23,16 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 
 @RestController  
-@RequestMapping("/empresa")
+@RequestMapping("/")
 @Tag(name= "/empresas", description = "Empleados API REST con JPA-CRUD Operations")
 public class EmpresaController {
 	@Autowired
 	private EmpresaRepository bd; 
+	
+	@GetMapping("/hola")
+	public String hello() {
+		return "hola caracaola";
+	}
 	
 	@PostMapping("/empresas")
 	@ResponseStatus(HttpStatus.CREATED)
