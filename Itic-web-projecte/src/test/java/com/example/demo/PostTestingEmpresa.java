@@ -15,28 +15,36 @@ import com.example.demo.repository.EmpresaRepository;
 class PostTestingEmpresa {
 
 	@Autowired
-	 private EmpresaRepository bd;
-	
-	@BeforeAll
-	static void setUpBeforeClass() throws Exception {
-	}
-
+	private EmpresaRepository bd;
 	
 	@Test 
-	public void modificaEmpresa(){
-		//Empresa empresa1 =  new Empresa (30, "italink",66666666,"Email@gmail.com", null);
-		Empresa empresa2 = new Empresa (30, "itaCeo",77777777,"Email@gmail.com",null);
-
-		Empresa empresa1 = bd.save(empresa2);
+	public void testPostEmpresaNombre(){
+		Empresa empresa1 = new Empresa (999, "itaCeo",77777777,"Email@gmail.com",null);
+		Empresa empresa2 = bd.save(empresa1);
 		
+		assertEquals("itaCeo", empresa2.getNombre());
 		
-		String nombre = "itaCeo";
+		bd.deleteById(empresa2.getId());
+	}
 	
+	@Test 
+	public void testPostEmpresaTelefono(){
+		Empresa empresa1 = new Empresa (999, "itaCeo",77777777,"Email@gmail.com",null);
+		Empresa empresa2 = bd.save(empresa1);
 		
+		assertEquals(77777777, empresa2.getTelefono());
 		
-		assertEquals("itaCeo", nombre);
-		//assertEquals(77777777, numeroTelf);
-		//assertEquals(30, id);
+		bd.deleteById(empresa2.getId());
+	}
+	
+	@Test 
+	public void testPostEmpresaEmail(){
+		Empresa empresa1 = new Empresa (99, "itaCeo",77777777,"Email@gmail.com",null);
+		Empresa empresa2 = bd.save(empresa1);
+		
+		assertEquals("Email@gmail.com", empresa2.getEmail());
+		
+		bd.deleteById(empresa2.getId());
 	}
 
 
