@@ -1,4 +1,4 @@
-/*package com.example.demo.bean;
+package com.example.demo.bean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,4 +18,3 @@ public class OpenApiConfig {
 	
 	
 }
-*/
