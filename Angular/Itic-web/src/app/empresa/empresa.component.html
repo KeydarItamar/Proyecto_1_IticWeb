@@ -1,0 +1,27 @@
+
+<div>   
+    <table>
+        <thead>
+            <th>id      </th>
+            <th>Nombre </th>
+            <th>telefono</th>
+            <th>email </th>
+            <th>Ofertas </th>
+        </thead>
+            <tbody>
+                <tr *ngFor="let empresa of empresas">
+                    <th scope="row">{{empresa.id}}</th>
+                    <th scope="row">{{empresa.nombre}}</th>
+                    <th scope="row">{{empresa.telefono}}</th>
+                    <th scope="row">{{empresa.email}}</th>
+                    <th scope="row">
+                        <ul *ngFor="let oferta of empresa.ofertas">
+                            <li>{{oferta.id}}</li>
+                            <li>{{oferta.salario}}</li>
+                            <li>{{oferta.empresa}}</li>
+                        </ul>
+                    </th>
+                </tr>
+            </tbody>
+       </table>  
+</div>
