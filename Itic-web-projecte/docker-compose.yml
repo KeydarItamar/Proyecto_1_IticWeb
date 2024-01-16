@@ -1,22 +1,20 @@
 version: "3"
 services:
-  my-own-mysql:
-    image: mysql:8.0
+  mariadb:
     container_name: my-own-mysql
+    image: docker.io/bitnami/mariadb:11.1
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - mysqlDBData:/docker-entrypoint-initdb.d
-    ports:
-      - 3306:3306
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      - ALLOW_EMPTY_PASSWORD=yes
+      - MARIADB_DATABASE=biblioteca_online
 
-  my-own-phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: my-own-phpmyadmin
-    links:
-      - 'my-own-mysql:db'
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin_projecte
     ports:
-      - '8081:80'
+      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
       
   projecte:
     image: springbootapp:0.0.1-SNAPSHOT
@@ -24,7 +22,4 @@ services:
     ports:
       - "8080:8080"
     depends_on:
-      - my-own-mysql
-
-volumes:
-  mysqlDBData:
+      - mariadb
